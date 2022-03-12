@@ -1,5 +1,6 @@
 //variables
-$background-color : rgb(89, 125, 167);
+$background-color : #2C4269;
+$login-color : rgb(255,255,255);
 
 html, body {
     background-color: $background-color;
@@ -34,11 +35,12 @@ html, body {
     width: 400px;
     border: 0px;
     border-radius: 5px;
-    background:rgb(44, 66, 105);
+    background:$login-color;
     padding: 50px 20px;
     display: flex;
     text-align: center;
     flex-direction: column;
+    box-shadow: black 5px 5px 10px;
 }
 .content input[type="text"], input[type="password"]{
     border-radius: 5px;
@@ -102,4 +104,12 @@ button:hover{
 //messages
 .alert{
     color:red;
+}
+.alert ul{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.alert li{
+    list-style: none;
 }

@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #597da7;
+  background-color: #2C4269;
   color: #636b6f;
   font-family: "Nunito", sans-serif;
   font-weight: 200;
@@ -32,11 +32,12 @@ body {
   width: 400px;
   border: 0px;
   border-radius: 5px;
-  background: #2c4269;
+  background: white;
   padding: 50px 20px;
   display: flex;
   text-align: center;
   flex-direction: column;
+  box-shadow: black 5px 5px 10px;
 }
 
 .content input[type=text],
@@ -103,5 +104,15 @@ button:hover {
 
 .alert {
   color: red;
+}
+
+.alert ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.alert li {
+  list-style: none;
 }
 
