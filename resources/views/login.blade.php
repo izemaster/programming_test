@@ -10,79 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                width: 250px;
-                border: 1px solid black;
-                border-radius: 5px;
-                padding: 20px;
-                display: flex;
-                text-align: center;
-                flex-direction: column;
-            }
-            .content input[type="text"], input[type="password"]{
-                border-radius: 5px;
-                border: 1px solid black;
-                height: 20px;
-                margin: 5px
-            }
-
-            button{
-                width: 100%;
-                border-radius: 5px;
-                background: teal;
-                color: white;
-                border: 1px solid black;
-                height: 20px;
-                margin: 5px
-            }
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link rel="stylesheet" href="/css/login.css">
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -93,8 +21,21 @@
                     @csrf
                     <input type="text" name="email" placeholder="email">
                     <input type="password" name="password" placeholder="password">
+
                     <button type="submit">Login</button>
+                    <div id="register-link">
+                        <a href="{{route('register')}}">Register</a>
+                    </div>
                 </form>
+                @if ($errors->any())
+                <div class="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
             </div>
         </div>
     </body>

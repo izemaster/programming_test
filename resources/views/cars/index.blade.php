@@ -1,24 +1,10 @@
 @extends('layouts.admin')
 @section('styles')
-<style>
-table, th ,td {
-    border: 1px solid black;
-}
-.table-cars{
-    border-collapse: collapse;
-    display: block;
-    margin: 20px auto;
-}
-.table-cars thead{
-    background: lightgray;
-    color: white;
-    font-weight: bold;
-}
-</style>
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
 @endsection
 @section('content')
-<form action="{{route('cars.create')}}">
-    <button type="submit">New Car</button>
+<form id="form-create" action="{{route('cars.create')}}">
+        <button type="submit">New Car</button>
 </form>
 <table class="table-cars">
     <thead>
@@ -54,7 +40,7 @@ table, th ,td {
                 <form action="{{route("cars.toggle",$car)}}" method="post">
                     @csrf
                     @method('put')
-                    <button type="submit">{{!$car->enabled ? 'Enable':'Disable'}}</button>
+                    <button type="submit" id="{{!$car->enabled ? 'enable':'disable'}}">{{!$car->enabled ? 'Enable':'Disable'}}</button>
                 </form>
             </td>
         </tr>

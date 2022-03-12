@@ -72,29 +72,29 @@
                 display: flex;
                 flex-direction: column;
             }
-            ul {
+            aside ul {
                margin: 0;
                padding: 10px 0;
                height: 100vh;
                list-style-type: none;
                background: #333;
             }
-            ul li{
+            aside ul li{
                 width: 100%;
                 box-sizing: border-box;
                 color: #FFF;
                 padding: 5px 20px;
                 display: inline-block;
             }
-            ul li:hover{
+            aside ul li:hover{
                 background: #575757;
                 transition: 0.5s
             }
-            ul li a{
+            aside ul li a{
                 color: white;
                 text-decoration: none;
             }
-            ul li a:hover{
+            aside ul li a:hover{
                 text-decoration: underline;
             }
             .m-b-md {
@@ -130,7 +130,7 @@
                 <aside>
                     <ul>
                         <li><a href="{{route("cars.index")}}">Car List</a></li>
-                        <li><a href="">Logout</a></li>
+                        <li><a href="{{route('logout')}}">Logout</a></li>
 
                     </ul>
                 </aside>

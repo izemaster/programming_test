@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use Illuminate\Http\Request;
+use App\CarTag;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -12,8 +14,10 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+        $this->authorize('admin-options');
         $cars = Car::all();
         return view('cars.index',compact('cars'));
     }
@@ -25,7 +29,9 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        $this->authorize('admin-options');
+        $tags = CarTag::all();
+        return view('cars.create',compact('tags'));
     }
 
     /**
@@ -36,7 +42,20 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin-options');
+        //dd($request);
+        $validatedData = $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'engine_size' => 'required|numeric',
+            'registration' => 'required',
+            'price' => 'required|numeric',
+            'photo' => 'image'
+        ]);
+
+        $tag_ids = $request->tags;
         $car = Car::create($request->all());
+        $car->car_tags()->sync($tag_ids);
         if($request->hasFile('photo')){
             $path = $request->file('photo')->store('images','public');
 
@@ -67,7 +86,9 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        return view('cars.edit',compact('car'));
+        $this->authorize('admin-options');
+        $tags = CarTag::all();
+        return view('cars.edit',compact('car','tags'));
     }
 
     /**
@@ -79,8 +100,18 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
+        $validatedData = $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'engine_size' => 'required|numeric',
+            'registration' => 'required',
+            'price' => 'required|numeric',
+            'photo' => 'sometimes|image'
+        ]);
+
         $car->update($request->all());
         if($request->hasFile('photo')){
+            Storage::delete(storage_path($car->image));
             $path = $request->file('photo')->store('images','public');
 
             $car->update([

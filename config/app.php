@@ -28,6 +28,9 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+    //ElasticSearch host
+    'search_host' => env('SEARCH_HOSTS','localhost'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

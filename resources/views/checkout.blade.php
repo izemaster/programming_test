@@ -95,11 +95,7 @@
 
                 <nav id="sidebar-wrapper">
                     <div class="sidebar-nav">
-                        <div id="header-buttons">
-                            <a id="close-menu" href="#" class="pull-right toggle square"><img src="{{asset("storage/images/5402366_delete_remove_cross_cancel_close_icon.png")}}" alt=""></a>
-                        </div>
-
-                        <div id="basket-header">Bakset</div>
+                        <a id="close-menu" href="#" class="pull-right toggle square">X</a>
                         @include('basket')
 
                     </div>
@@ -126,46 +122,19 @@
                     Car Shop
                 </div>
                 <div class="search-container">
-                    <form action="" method="GET">
+                    <form action="{{route('home')}}" method="GET">
                         @method('get')
                         @csrf
-                        <input type="text" name="q" placeholder="Make, model, engine size"><button type="submit"><img src="storage/images/search_icon.png" alt=""></button>
+                        <input type="text" name="q" placeholder="Make, model, engine size"><button type="submit"><img src={{asset("storage/images/search_icon.png")}} alt=""></button>
 
                     </form>
-                    <a id="menu-toggle" href="#" class="toggle"><img src="storage/images/2703080_cart_basket_ecommerce_shop_icon.png" alt=""></a>
+                    <a id="menu-toggle" href="#" class="toggle"><img src={{asset("storage/images/2703080_cart_basket_ecommerce_shop_icon.png")}} alt=""></a>
                 </div>
                 <div class="header-bottom"></div>
 
             </header>
             <div class="container">
-                @foreach($cars as $car)
-                <div class="car-item">
-                    <div class="car-image">
-                        <img src="{{asset('storage/'.$car->image)}}" alt="">
-                    </div>
-
-                    <div class="car-title"><h2>{{$car->model}}</h2></div>
-                    <div class="car-description">
-                        <p>Make: {{$car->make}}</p>
-                        <p>Model: {{$car->model}}</p>
-                        <p>Reg.: {{$car->registration}}</p>
-                        <p>Engine size: {{$car->engine_size}}</p>
-                    </div>
-                    <div id="car-tags">
-                        @foreach($car->car_tags as $tag)
-                        <div class="tag">
-                            {{$tag->value}}
-                        </div>
-                        @endforeach
-                    </div>
-                    <div class="car-price">USD {{$car->price}}</div>
-                    <form action="#" method="post">
-                        @method('post')
-                        @csrf
-                        <button type="submit" class="ajaxSubmit" data-id="{{$car->id}}">Add to cart</button>
-                    </form>
-                </div>
-                @endforeach
+                <span id="text-success">Order was placed sucessfully.</span>
 
             </div>
 

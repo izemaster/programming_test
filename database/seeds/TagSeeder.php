@@ -26,5 +26,30 @@ class TagSeeder extends Seeder
             "category" => "Color",
             "value" => "gray",
         ]);
+
+        CarTag::create([
+            "category" => "Doors",
+            "value" => "4-door",
+        ]);
+
+        CarTag::create([
+            "category" => "Doors",
+            "value" => "5-door",
+        ]);
+
+        CarTag::create([
+            "category" => "Doors",
+            "value" => "6-door",
+        ]);
+
+        CarTag::create([
+            "category" => "Transmission",
+            "value" => "Manual",
+        ]);
+
+        CarTag::create([
+            "category" => "Transmission",
+            "value" => "Automatic",
+        ]);
     }
 }

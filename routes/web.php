@@ -1,8 +1,9 @@
 <?php
 
 use App\Car;
+use App\SearchRepo;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 //Pages
+Route::get('test',function (SearchRepo $client,Request $request){
+    dd($client->search($request->q));
+});
 Route::get('/', "PageController@home")->name('home');
 Route::get('/dashboard',"PageController@dashboard")->middleware('auth')->name('dashboard');
 
@@ -32,6 +37,12 @@ Route::put('cars/{car}/toggle','CarController@toggle')->name('cars.toggle');
 Route::post('/basket/add/{car}','BasketController@addToBasket')->name('add.to.basket');
 Route::post('/basket/delete/{car}','BasketController@deleteFromBasket')->name('delete.to.basket');
 Route::post('/basket/update/{car}','BasketController@updateQuantity')->name('update.to.basket');
+Route::post('/basket/checkout','BasketController@checkout')->name('checkout.basket');
+Route::post('/basket/success','BasketController@sucess')->name('success.basket');
+
 
 //Ajax
 Route::get('/ajax/basket','BasketController@refreshBasket')->name('ajax.refresh.basket');
+
+
+

@@ -1,40 +1,6 @@
 @extends ('layouts.admin')
 @section('styles')
-<style>
-    .form-container{
-        display: flex;
-        flex-direction: column;
-    }
-    .input-group{
-
-        margin: 5px 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: right
-    }
-    .checkbox-group{
-        display: flex;
-        flex-direction: row
-    }
-    .checkbox-group label{
-        margin-right: 20px;
-    }
-    .input-group label{
-        width: 100px;
-        margin-right: 10px;
-        text-align: right;
-    }
-    .input-group  button{
-        font-size: 1.2em;
-        color: white;
-        border-radius: 8px;
-        padding: 5px 15px;
-        border: 1px solid darkblue;
-        background: #067BF9;
-
-    }
-
-</style>
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
 @endsection
 @section('content')
 <h2>Add new car</h2>
@@ -65,26 +31,28 @@
         <div class="input-group">
             <button type="submit">Create</button>
         </div>
+
+
         <h3>Color</h3>
         <div class="checkbox-group">
-            <label for="chk1"><input type="checkbox" id="chk1" value="">red</label>
-            <label for="chk1"><input type="checkbox" id="chk1" value="">blue</label>
-            <label for="chk1"><input type="checkbox" id="chk1" value="">gray</label>
+            @foreach($tags->where('category','Color') as $tag)
+            <label for="tags[{{$tag->id}}]"><input type="checkbox" id="tags[{{$tag->id}}]"  name="tags[{{$tag->id}}]" value="{{$tag->id}}">{{$tag->value}}</label>
+            @endforeach
         </div>
 
         <h3>Doors</h3>
         <div class="checkbox-group">
-            <label for="chk1"><input type="checkbox" id="chk1" value="">4</label>
-            <label for="chk1"><input type="checkbox" id="chk1" value="">5</label>
-            <label for="chk1"><input type="checkbox" id="chk1" value="">2</label>
+            @foreach($tags->where('category','Doors') as $tag)
+            <label for="tags[{{$tag->id}}]"><input type="checkbox" id="chktags[{{$tag->id}}]" name="tags[{{$tag->id}}]" value="{{$tag->id}}">{{$tag->value}}</label>
+            @endforeach
         </div>
 
         <h3>Transmission</h3>
         <div class="checkbox-group">
-            <label for="chk1"><input type="checkbox" id="chk1" value="">Automatic</label>
-            <label for="chk1"><input type="checkbox" id="chk1" value="">Manual</label>
+            @foreach($tags->where('category','Transmission') as $tag)
+            <label for="tags[{{$tag->id}}]"><input type="checkbox" id="tags[{{$tag->id}}]" name="tags[{{$tag->id}}]" value="{{$tag->id}}">{{$tag->value}}</label>
+            @endforeach
         </div>
-
 
     </div>
 </form>

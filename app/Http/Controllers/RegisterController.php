@@ -21,7 +21,7 @@ class RegisterController extends Controller
         ]);
 
         $data = $request->all();
-        $check = $this->create($data);
+        $this->create($data);
 
         return redirect("/")->withSuccess('S');
     }

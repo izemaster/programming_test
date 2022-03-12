@@ -24,4 +24,13 @@
             </span>
         </span>
     @endif
+    @if(!empty($basket))
+    <div class="checkout">
+        <form action="{{route('checkout.basket')}}" method="post">
+            @csrf
+            @method('post')
+            <button type="submit">Proceed to Checkout</button>
+        </form>
+    </div>
+    @endif
 </div>

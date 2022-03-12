@@ -1,0 +1,131 @@
+    .form-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-group{
+
+        margin: 5px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: right
+    }
+    .checkbox-group{
+        display: flex;
+        flex-direction: row
+    }
+    .checkbox-group label{
+        margin-right: 20px;
+    }
+    .input-group label{
+        width: 100px;
+        margin-right: 10px;
+        text-align: right;
+    }
+
+    .input-group button{
+        box-sizing: border-box;
+        margin: 10px 0;
+        width: 300px;
+        height: 50px;
+        background: black;
+        border: 0px;
+        color: white;
+        font-size: 1.5em;
+        border-radius: 10px;
+        transition: background 0.5s;
+    }
+    .input-group button:hover{
+        background: #333;
+        cursor: pointer;
+    }
+    .input-group{
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .input-group input{
+        border-radius: 5px;
+        height: 30px;
+    }
+    .input-group img{
+        width: 200px;
+        height: auto;
+    }
+
+    //messages
+    .alert{
+        color:red;
+    }
+
+    //index tables
+    table, th ,td {
+        border: 1px solid black;
+    }
+    .table-cars{
+        border-collapse: collapse;
+        display: block;
+        margin: 20px auto;
+        max-width: 1000px;
+    }
+    .table-cars thead{
+        background: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+    .table-cars td{
+        padding: 5px 10px;
+    }
+    .table-cars button{
+        box-sizing: border-box;
+        margin: 5px 0;
+        width: 100px;
+        height: 30px;
+        background: rgb(59, 98, 226);
+        border: 0px;
+        color: white;
+        font-size: 1.1em;
+        border-radius: 10px;
+        transition: background 0.5s;
+    }
+    .table-cars #enable{
+        background: rgb(62, 189, 62);
+    }
+    .table-cars #disable{
+        background: rgb(243, 65, 80);
+    }
+    .table-cars button:hover{
+        background: #333;
+        cursor: pointer;
+    }
+
+    #form-create{
+        display: flex;
+        max-width: 1000px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    #form-create button{
+
+        box-sizing: border-box;
+        margin: 5px 0;
+        width: 100px;
+        height: 30px;
+        background: rgb(59, 226, 176);
+        border: 0px;
+        color: white;
+        font-size: 1.1em;
+        border-radius: 10px;
+        transition: background 0.5s;
+    }
+    #form-create button:hover{
+        cursor: pointer;
+        background: rgb(31, 196, 72);
+    }
+

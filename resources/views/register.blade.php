@@ -11,62 +11,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+        <!-- Styles -->
 
-            .full-height {
-                height: 100vh;
-                width: 100%;
-            }
+        <link rel="stylesheet" href="/css/app.css">
 
-            .flex-top {
-
-                display: flex;
-                flex-direction: column;
-                justify-content: top;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .header {
-                text-align: center;
-                width: 100%;
-                display: block
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            ul {
-               list-style-type: none;
-               background: #333;
-            }
-            ul li{
-                min-width: 200px;
-                color: #FFF;
-                display: inline-block;
-            }
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-
-        </style>
     </head>
     <body>
 
@@ -89,36 +37,43 @@
                 <div class="title m-b-md">
                     Car Shop
                 </div>
-                <ul>
-                    <li>Cars</li>
-                    <li>Basket</li>
-                    <li>Login</li>
-                    <li>Register</li>
-                </ul>
+                <div class="header-bottom"></div>
 
             </header>
             <div class="content">
-                <h2>Register</h2>
-                <form action="{{route('registration')}}" method="post">
-                    @csrf
-                    @method('post')
-                    <div class="input-group">
-                        <label for="">Name: </label><input name="name" type="text" placeholder="John Doe">
-                    </div>
-                    <div class="input-group">
-                        <label for="">E-mail: </label><input name="email" type="text" placeholder="email@domain.com">
-                    </div>
-                    <div class="input-group">
-                        <label for="">Password: </label><input name="password" type="password" placeholder="******">
-                    </div>
-                    <div class="input-group">
-                        <label for="">Repeat Password: </label><input name="re_password" type="password" placeholder="******">
-                    </div>
-                    <div class="input-group">
-                        <label for="">Address: </label><input name="address" type="text" placeholder="221B Baker Street">
-                    </div>
-                    <button type="submit">Register</button>
-                </form>
+                <div class="registration-wrapper">
+                    <h2>Register</h2>
+                    <form action="{{route('registration')}}" method="post">
+                        @csrf
+                        @method('post')
+                        <div class="input-group">
+                            <label for="">Name: </label><input name="name" type="text" placeholder="John Doe">
+                        </div>
+                        <div class="input-group">
+                            <label for="">E-mail: </label><input name="email" type="text" placeholder="email@domain.com">
+                        </div>
+                        <div class="input-group">
+                            <label for="">Password: </label><input name="password" type="password" placeholder="******">
+                        </div>
+                        <div class="input-group">
+                            <label for="">Repeat Password: </label><input name="re_password" type="password" placeholder="******">
+                        </div>
+                        <div class="input-group">
+                            <label for="">Address: </label><input name="address" type="text" placeholder="221B Baker Street">
+                        </div>
+                        @if ($errors->any())
+                        <div class="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                        <button type="submit">Register</button>
+                    </form>
+
+                </div>
 
             </div>
 

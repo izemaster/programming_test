@@ -18,7 +18,7 @@ class CarSeeder extends Seeder
                 "make" => "GMC",
                 "registration" => "0123456789",
                 "price" => 20578.50,
-                "engine_size" => "1.4L",
+                "engine_size" => "1.4",
                 "image" => "images/tvjxamFZb7JeAezfKdXsIcSLxSFioh6ZzCutvdx3.jpg",
                 "enabled" => true,
 
@@ -30,7 +30,7 @@ class CarSeeder extends Seeder
                 "make" => "Mercedes-Benz",
                 "registration" => "987654321",
                 "price" => 41500.00,
-                "engine_size" => "1.4L",
+                "engine_size" => "1.4",
                 "image" => "images/daxPcxS0stX7dhJz4GTHJMH9J3ITfi2ZNbt13YOm.webp",
                 "enabled" => true,
 
