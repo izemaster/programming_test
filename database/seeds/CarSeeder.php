@@ -24,7 +24,7 @@ class CarSeeder extends Seeder
 
 
             ]);
-        Car::create(
+        $car = Car::create(
             [
                 "model" => "A-Class 2022",
                 "make" => "Mercedes-Benz",
@@ -36,5 +36,6 @@ class CarSeeder extends Seeder
 
 
             ]);
+        $car->car_tags()->sync([1,4,7]);
     }
 }
