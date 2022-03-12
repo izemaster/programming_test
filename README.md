@@ -8,6 +8,8 @@
 <code>composer install</code>
 - Run migrations
 <code>php artisan migrate:fresh --seed</code>
+- Create symlink
+<code>php artisan storage:link</code>
 - Run application
 <code>php artisan serve</code>
 
