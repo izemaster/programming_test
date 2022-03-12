@@ -100,6 +100,7 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
+
         $validatedData = $request->validate([
             'make' => 'required',
             'model' => 'required',
@@ -110,6 +111,8 @@ class CarController extends Controller
         ]);
 
         $car->update($request->all());
+        $tag_ids = $request->tags;
+        $car->car_tags()->sync($tag_ids);
         if($request->hasFile('photo')){
             Storage::delete(storage_path($car->image));
             $path = $request->file('photo')->store('images','public');
@@ -117,6 +120,8 @@ class CarController extends Controller
             $car->update([
                 'image' => $path
             ]);
+
+
         }
 
         return redirect()->route('cars.index');
