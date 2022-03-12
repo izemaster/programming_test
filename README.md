@@ -2,7 +2,8 @@
 ## Instructions
 
 - Run elasticsearch
-<code>docker compose-up ./elasticsearch-docker/docker-compose.yml</code>
+<code>cd ./elasticsearch-docker</code>
+<code>docker compose-up </code>
 - Configure and rename .env.example to .env
 - Install dependencies
 <code>composer install</code>
