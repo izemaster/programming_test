@@ -10,5 +10,14 @@
 - Run application
 <code>php artisan serve</code>
 
+## Client User
+>User: client@email.com
+>Password : 123456
+
+## Admin User
+>User: admin@email.com
+>Password : 123456
+
+
 
 
